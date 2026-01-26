@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Story Book",
+    "title": "A heartwarming short story collection for beginners.",
+    "price": 0,
+    "category": "free",
+    "image": "https://github.com/akhil2k-lc/bookStoreApp/blob/master/Frontend/public/Banner.png?raw=true"
+  },
+  {
+    "id": 2,
+    "name": "Adventure Tales",
+    "title": "Thrilling adventures that spark imagination and courage.",
+    "price": 199,
+    "category": "free",
+    "image": "https://github.com/akhil2k-lc/bookStoreApp/blob/master/Frontend/public/Banner.png?raw=true"
+  },
+  {
+    "id": 3,
+    "name": "Mystery House",
+    "title": "A suspense-filled mystery set in an abandoned mansion.",
+    "price": 249,
+    "category": "free",
+    "image": "https://github.com/akhil2k-lc/bookStoreApp/blob/master/Frontend/public/Banner.png?raw=true"
+  },
+  {
+    "id": 4,
+    "name": "Learning JavaScript",
+    "title": "Beginner-friendly guide to modern JavaScript concepts.",
+    "price": 0,
+    "category": "free",
+    "image": "https://github.com/akhil2k-lc/bookStoreApp/blob/master/Frontend/public/Banner.png?raw=true"
+  },
+  {
+    "id": 5,
+    "name": "History of India",
+    "title": "An overview of India’s rich and diverse history.",
+    "price": 299,
+    "category": "free",
+    "image": "https://github.com/akhil2k-lc/bookStoreApp/blob/master/Frontend/public/Banner.png?raw=true"
+  },
+  {
+    "id": 6,
+    "name": "Motivation Daily",
+    "title": "Daily motivational thoughts to build confidence.",
+    "price": 0,
+    "category": "free",
+    "image": "https://github.com/akhil2k-lc/bookStoreApp/blob/master/Frontend/public/Banner.png?raw=true"
+  },
+  {
+    "id": 7,
+    "name": "free",
+    "title": "Simple explanations of complex scientific ideas.",
+    "price": 349,
+    "category": "science",
+    "image": "https://github.com/akhil2k-lc/bookStoreApp/blob/master/Frontend/public/Banner.png?raw=true"
+  },
+  {
+    "id": 8,
+    "name": "Fantasy World",
+    "title": "A magical journey through an imaginative fantasy land.",
+    "price": 199,
+    "category": "free",
+    "image": "https://github.com/akhil2k-lc/bookStoreApp/blob/master/Frontend/public/Banner.png?raw=true"
+  },
+  {
+    "id": 9,
+    "name": "Poetry Collection",
+    "title": "A soulful collection of modern poems.",
+    "price": 0,
+    "category": "free",
+    "image": "https://github.com/akhil2k-lc/bookStoreApp/blob/master/Frontend/public/Banner.png?raw=true"
+  },
+  {
+    "id": 10,
+    "name": "Business Basics",
+    "title": "Essential concepts every entrepreneur should know.",
+    "price": 399,
+    "category": "business",
+    "image": "https://github.com/akhil2k-lc/bookStoreApp/blob/master/Frontend/public/Banner.png?raw=true"
+  },
+  {
+    "id": 11,
+    "name": "Health & Wellness",
+    "title": "Practical tips for a healthy and balanced lifestyle.",
+    "price": 0,
+    "category": "health",
+    "image": "https://github.com/akhil2k-lc/bookStoreApp/blob/master/Frontend/public/Banner.png?raw=true"
+  },
+  {
+    "id": 12,
+    "name": "Coding Interviews",
+    "title": "Preparation guide for cracking coding interviews.",
+    "price": 499,
+    "category": "technology",
+    "image": "https://github.com/akhil2k-lc/bookStoreApp/blob/master/Frontend/public/Banner.png?raw=true"
+  }
+]
