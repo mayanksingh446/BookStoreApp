@@ -38,7 +38,7 @@ const Banner = () => {
           </label>
           <div className="validator-hint hidden">Enter valid email address</div>
           </div>
-          <button className="btn btn-secondary">Secondary</button>
+          <button className="btn btn-secondary">Get Started</button>
         </div>
         <div className="order-1 w-full md:w-1/2">
         <img src={Baner} className="ml-2 mt-5 w-160 h-160 object-fit"/>

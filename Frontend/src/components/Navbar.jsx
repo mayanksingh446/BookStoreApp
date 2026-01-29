@@ -1,7 +1,12 @@
 import React from "react";
 import Login from "./Login";
+import Logout from "./Logout";
+import { useAuth } from "../context/AuthProvider";
 
 const Navbar = () => {
+      const [authUser,setAuthUser] = useAuth();
+      console.log(authUser);
+
   const navbar = (
     <>
       <li>
@@ -83,7 +88,8 @@ const Navbar = () => {
                 <input type="search" required placeholder="Search" />
               </label>
             </div>
-            <div>
+            {authUser ? (<Logout/>):
+            (<div>
               <button
                 type="button"
                 onClick={() =>
@@ -96,6 +102,7 @@ const Navbar = () => {
 
               <Login />
             </div>
+            )}
           </div>
         </div>
       </div>
