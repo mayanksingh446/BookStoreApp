@@ -6,6 +6,12 @@ import Couress from './course/Couress'
 import Signup from './components/Signup'
 import toast, { Toaster } from 'react-hot-toast';
 import { useAuth } from './context/AuthProvider'
+import Content from './pages/Content'
+import About from './pages/About'
+import Search from './pages/Search'
+import BookDetails from './pages/BookDetails'
+import Buy from './pages/Buy'
+import PurchasedBooks from './pages/PurchasedBooks'
 
 const App = () => {
    const [authUser,setAuthUser] = useAuth();
@@ -18,6 +24,12 @@ const App = () => {
       <Route path='/' element={<Home/>}/>
       <Route path='/courses' element={authUser?<Couress/>: <Navigate to='/signup'/>} />
       <Route path='/signup' element={<Signup/>}/>
+      <Route path='/content' element={<Content/>}/>
+      <Route path='/about' element={<About/>}/>
+      <Route path='/search' element={<Search/>}/>
+      <Route path='/book/:id' element={<BookDetails/>}/>
+      <Route path='/buy/:id' element={<Buy/>}/>
+      <Route path='/purchased' element={<PurchasedBooks/>}/>
      </Routes>
       <Toaster/>
     </div>

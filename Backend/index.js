@@ -20,7 +20,7 @@ const URI = process.env.MongoDBURI
 
 try{
   await mongoose.connect(URI)
-console.log("connected to mongodb")
+  console.log("connected to mongodb")
 
 }
 catch(error)

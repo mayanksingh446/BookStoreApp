@@ -4,9 +4,9 @@ import Baner from "../../public/Banner.jpg"
 const Banner = () => {
   return (
     <>
-      <div className="max-w-screen-2xl container mx-auto flex flex-col md:flex-row ml-3">
-        <div className="w-full order-2 md:order-1 md:w-1/2 mt-12 md:mt-32">
-          <div className="space-y-12">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center gap-8 lg:gap-16">
+        <div className="w-full order-1 md:order-1 md:w-1/2 mt-10 md:mt-20">
+          <div className="space-y-6">
             <h1 className="text-4xl font-bold">
               Hello,Welcome here to learn something
               <span className="text-pink-500">New everday!!!!</span>
@@ -40,8 +40,12 @@ const Banner = () => {
           </div>
           <button className="btn btn-secondary">Get Started</button>
         </div>
-        <div className="order-1 w-full md:w-1/2">
-        <img src={Baner} className="ml-2 mt-5 w-160 h-160 object-fit"/>
+        <div className="order-2 w-full md:w-1/2 flex justify-center">
+        <img
+          src={Baner}
+          alt="World Book Day illustration"
+          className="mt-5 w-full max-w-[420px] md:max-w-[560px] aspect-square object-cover rounded-lg"
+        />
         </div>
       </div>
     </>

@@ -1,10 +1,25 @@
 import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Card = ({item}) => {
+  const bookId = item._id || item.id;
+  const navigate = useNavigate();
+
+  const openBuyPage = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    navigate(`/buy/${bookId}`, { state: { book: item } });
+  };
+
   return (
     <>
     <div className='mt-2 mb-4 px-2'>
-      <div className="card w-92 shadow-2xl inset-shadow-2xs h-full hover:scale-105 duration-200">
+      <Link
+        to={`/book/${bookId}`}
+        state={{ book: item }}
+        className="card block w-full shadow-2xl inset-shadow-2xs h-full hover:scale-105 duration-200"
+        aria-label={`View details for ${item.name}`}
+      >
   <figure>
     <img
       src={item.image}
@@ -18,11 +33,17 @@ const Card = ({item}) => {
     <p>{item.title}</p>
     <div className="card-actions justify-between">
       <div className="badge badge-outline">${item.price}</div>
-      <div className="cursor-pointer px-2 py-1 rounded-full hover:bg-pink-500 hover:text-white duration-200 ">Buy now</div>
+      <button
+        type="button"
+        onClick={openBuyPage}
+        className="cursor-pointer rounded-full px-2 py-1 hover:bg-pink-500 hover:text-white duration-200"
+      >
+        Buy now
+      </button>
     </div>
   </div>
-</div>
-    </div>
+      </Link>
+  </div>
     </>
   )
 }

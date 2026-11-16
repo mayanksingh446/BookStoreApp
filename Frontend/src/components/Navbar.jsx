@@ -1,11 +1,22 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Login from "./Login";
 import Logout from "./Logout";
 import { useAuth } from "../context/AuthProvider";
 
 const Navbar = () => {
       const [authUser,setAuthUser] = useAuth();
-      console.log(authUser);
+      const [search, setSearch] = useState("");
+      const navigate = useNavigate();
+
+      const handleSearch = (event) => {
+        event.preventDefault();
+        const query = search.trim();
+        if (query) {
+          navigate(`/search?q=${encodeURIComponent(query)}`);
+        }
+      };
 
   const navbar = (
     <>
@@ -16,18 +27,21 @@ const Navbar = () => {
         <a href="/courses">Course</a>
       </li>
       <li>
-        <a>Content</a>
+        <Link to="/content">Content</Link>
       </li>
       <li>
-        <a>About</a>
+        <Link to="/about">About</Link>
+      </li>
+      <li>
+        <Link to="/purchased">My Books</Link>
       </li>
     </>
   );
 
   return (
     <>
-      <div className="max-w-screen-2xl container mx-auto text-white fixed top-0 left-0 right-0 z-50">
-        <div className="navbar bg-base-100 shadow-sm p-3">
+      <div className="w-full text-white fixed top-0 left-0 right-0 z-50 bg-base-100 shadow-sm">
+        <div className="navbar w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -67,7 +81,7 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">{navbar}</ul>
             </div>
-            <div className="hidden md:block">
+            <form onSubmit={handleSearch} className="hidden md:block">
               <label className="input outline-none rounded-md">
                 <svg
                   className="h-[1em] opacity-50 "
@@ -85,9 +99,15 @@ const Navbar = () => {
                     <path d="m21 21-4.3-4.3"></path>
                   </g>
                 </svg>
-                <input type="search" required placeholder="Search" />
+                <input
+                  type="search"
+                  value={search}
+                  onChange={(event) => setSearch(event.target.value)}
+                  placeholder="Search books"
+                  aria-label="Search books"
+                />
               </label>
-            </div>
+            </form>
             {authUser ? (<Logout/>):
             (<div>
               <button

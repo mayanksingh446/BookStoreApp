@@ -41,7 +41,7 @@ const Login = () => {
 }
   return (
     <dialog id="my_modal_3" className="modal">
-      <div className="modal-box relative">
+      <div className="modal-box relative ">
 
         {/* Close button */}
         <button
@@ -106,6 +106,7 @@ const Login = () => {
               Not registered?{" "}
               <Link
                 to="/signup"
+                onClick={() => document.getElementById("my_modal_3")?.close()}
                 className="underline text-blue-500 cursor-pointer"
               >
                 Signup

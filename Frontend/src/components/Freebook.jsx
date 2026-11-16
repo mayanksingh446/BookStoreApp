@@ -3,12 +3,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import axios from 'axios'
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useEffect } from "react";
 import Card from "./Card"; // adjust path if needed
 
 const Freebook = () => {
   const [book, setbook] = useState([])
+  const sliderRef = useRef(null)
   useEffect(()=>{
     const getbook = async ()=>{
       try{
@@ -60,19 +61,37 @@ const Freebook = () => {
 
   return (
    <>
-   <div className='ml-3 mb-11 '>
+   <div className='w-full max-w-7xl mx-auto px-4 md:px-8 mb-16'>
     <div>
     <h1 className='text-3xl mb-2'>Free course offered</h1>
     <p className='mb-2'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur eum voluptatem vero repellat quo voluptatum accusamus optio necessitatibus, tenetur mollitia, minus autem cupiditate accusantium placeat explicabo odio deserunt molestiae culpa!</p>
     </div>
   
-   <div> <Slider {...settings}>
+   <div>
+     <Slider ref={sliderRef} {...settings}>
        {book.map((item) => (
   <Card key={item.id} item={item} />
 ))}
 
       </Slider>
-
+      <div className="mt-6 flex justify-center gap-3">
+        <button
+          type="button"
+          onClick={() => sliderRef.current?.slickPrev()}
+          className="btn btn-circle bg-pink-500 text-white hover:bg-pink-600"
+          aria-label="Show previous books"
+        >
+          ←
+        </button>
+        <button
+          type="button"
+          onClick={() => sliderRef.current?.slickNext()}
+          className="btn btn-circle bg-pink-500 text-white hover:bg-pink-600"
+          aria-label="Show next books"
+        >
+          →
+        </button>
+      </div>
    </div>
     </div>
    </>

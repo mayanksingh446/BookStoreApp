@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Login from "./Login";
+import Navbar from "./Navbar";
 import axios from 'axios'
 import toast from "react-hot-toast";
 
@@ -39,7 +40,9 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex h-screen items-center justify-center">
+    <>
+      <Navbar />
+      <div className="flex min-h-screen items-center justify-center pt-24">
       <div className="border rounded-md p-5 shadow-xl/30">
         <div className="relative">
 
@@ -123,7 +126,8 @@ const Signup = () => {
           </form>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 
