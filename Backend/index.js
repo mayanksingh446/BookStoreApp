@@ -16,20 +16,16 @@ dotenv.config();
 app.use(express.json())
 
 const PORT = process.env.PORT || 4000
-const URI = process.env.MongoDBURI || process.env.MONGODB_URI
+const URI = process.env.MongoDBURI
 
 try{
-  if (!URI) {
-    throw new Error("MongoDBURI or MONGODB_URI is not configured")
-  }
   await mongoose.connect(URI)
   console.log("connected to mongodb")
 
 }
 catch(error)
 {
-  console.error("MongoDB connection error:", error.message);
-  process.exit(1);
+  console.log("error", error);
 }
 
 //defining routes
