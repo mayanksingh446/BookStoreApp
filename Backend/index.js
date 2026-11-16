@@ -1,37 +1,48 @@
-// const express = require('express')
-// const dotenv = require('dotenv')  in place of this we use import because ES6 version of js are allow to use that
-import express from 'express'
-import mongoose from 'mongoose';
-import dotenv from 'dotenv'
-import cors from 'cors'
 
-import bookroute from './route/book.route.js'
-import userroute from './route/user.route.js'
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import cors from "cors";
 
-const app = express()
-
-app.use(cors());
+import bookroute from "./route/book.route.js";
+import userroute from "./route/user.route.js";
 
 dotenv.config();
-app.use(express.json())
 
-const PORT = process.env.PORT || 4000
-const URI = process.env.MongoDBURI
+const app = express();
 
-try{
-  await mongoose.connect(URI)
-  console.log("connected to mongodb")
+app.use(cors());
+app.use(express.json());
 
+const PORT = process.env.PORT || 4000;
+const URI = process.env.MONGODB_URI;
+
+// Check environment variable
+console.log("MongoDB URI configured:", Boolean(URI));
+
+// Define routes
+app.use("/book", bookroute);
+app.use("/user", userroute);
+
+// Connect to MongoDB before starting server
+async function startServer() {
+  try {
+    if (!URI) {
+      throw new Error("MONGODB_URI is missing in environment variables");
+    }
+
+    await mongoose.connect(URI);
+
+    console.log("Connected to MongoDB successfully");
+
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+
+  } catch (error) {
+    console.error("MongoDB connection error:", error.message);
+    process.exit(1);
+  }
 }
-catch(error)
-{
-  console.log("error", error);
-}
 
-//defining routes
-app.use('/book',bookroute)
-app.use('/user',userroute)
-
-app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`)
-})
+startServer();
