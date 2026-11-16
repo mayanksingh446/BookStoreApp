@@ -17,7 +17,7 @@ const Search = () => {
       try {
         setIsLoading(true);
         setError("");
-        const response = await axios.get("http://localhost:4001/book");
+        const response = await axios.get("https://bookstoreapp-backend-7uwe.onrender.com/book");
         setBooks(response.data);
       } catch {
         setError("We could not load the books. Please try again.");

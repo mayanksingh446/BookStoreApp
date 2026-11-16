@@ -22,7 +22,7 @@ const Signup = () => {
         email:data.email,
         password:data.password,
     }
-    await axios.post("http://localhost:4001/user/signup",userInfo)
+    await axios.post("https://bookstoreapp-backend-7uwe.onrender.com/signup",userInfo)
     .then((res)=>{
       console.log(res.data);
       if(res.data){

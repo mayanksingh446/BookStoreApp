@@ -60,7 +60,7 @@ const BookDetails = () => {
 
     const getBook = async () => {
       try {
-        const response = await axios.get("http://localhost:4001/book");
+        const response = await axios.get("https://bookstoreapp-backend-7uwe.onrender.com/book");
         const foundBook = response.data.find(
           (item) => String(item._id || item.id) === id
         );
