@@ -33,6 +33,9 @@ export const signup = async(req,res)=>{
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email and password are required" })
+    }
 
     // 1. Check if user exists
     const user = await User.findOne({ email })
@@ -57,7 +60,7 @@ export const login = async (req, res) => {
     })
 
   } catch (error) {
-    console.log("error", error)
+    console.error("Login error:", error)
     res.status(500).json({ message: "Internal Server Error" })
   }
 }
